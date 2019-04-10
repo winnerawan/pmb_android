@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:layout_marginTop="32dp"
+              android:background="#edf1f4"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:tint="@color/colorPrimaryDark"
+            android:src="@mipmap/ic_empty_search"
+            android:layout_width="128dp" android:layout_height="128dp"/>
+
+    <TextView android:textSize="16sp" android:layout_gravity="center" android:gravity="center" android:text="@string/message_retry" android:layout_margin="@dimen/padding_8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:text="@string/api_retry_error" android:textColor="@color/colorPrimaryDark" android:background="@drawable/shape_btn2"
+            android:layout_margin="@dimen/padding_16dp" android:id="@+id/retry" android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/a"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_16dp"
+        android:paddingRight="@dimen/padding_16dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_6dp">
+
+
+    <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                fontPath="fonts/neo-sans-light.ttf"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:id="@+id/title"
+                android:text="@string/track"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_8dp"
+                android:paddingTop="@dimen/padding_6dp"
+                android:paddingLeft="@dimen/padding_2dp"
+                android:paddingBottom="@dimen/padding_8dp"
+                android:paddingRight="@dimen/padding_2dp"
+                android:maxLines="1"
+                android:drawablePadding="@dimen/padding_8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingPrefix"/>
+
+
+    </LinearLayout>
+    <View android:layout_marginTop="@dimen/padding_4dp" android:layout_marginLeft="32dp"
+          android:background="@color/dark_gray"
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"/>
+</LinearLayout>

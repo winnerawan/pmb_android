@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   android:orientation="vertical"
+                                   app:cardElevation="3dp"
+                                   android:id="@+id/rootcard"
+                                   android:clipToPadding="false"
+                                   app:cardCornerRadius="3dp"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content">
+
+    <LinearLayout  android:id="@+id/bg" android:weightSum="1" android:orientation="horizontal"
+                  android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <LinearLayout  android:layout_weight="1" android:orientation="vertical"
+                      android:layout_width="0dp"
+                       android:paddingTop="@dimen/padding_8dp"
+                       android:paddingBottom="@dimen/padding_8dp"
+                      android:layout_height="wrap_content">
+
+            <TextView android:id="@+id/date" android:layout_marginBottom="@dimen/padding_8dp"
+                      android:paddingTop="@dimen/padding_16dp"
+                      android:paddingBottom="@dimen/padding_8dp"
+                      android:layout_marginLeft="@dimen/padding_16dp"
+                      android:layout_marginRight="@dimen/padding_16dp"
+                      android:textColor="#E6FFFFFF" android:text="24 Desember 2018" android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+            <TextView android:id="@+id/title" android:textSize="16sp"
+                      android:maxLines="2"
+                      android:layout_marginLeft="@dimen/padding_16dp"
+                      android:layout_marginRight="@dimen/padding_16dp"
+                      android:textColor="@color/white" android:text="APPS"
+                      android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <Button
+                    android:id="@+id/btn_download" android:textSize="12sp" android:paddingLeft="@dimen/padding_8dp"
+                    android:paddingStart="@dimen/padding_8dp" android:paddingRight="@dimen/padding_8dp"
+                    android:paddingEnd="@dimen/padding_8dp" android:text="Download Now"
+                    android:background="@drawable/shape_btn"
+                    android:layout_marginTop="@dimen/padding_8dp"
+                    android:layout_marginLeft="@dimen/padding_16dp"
+                    android:layout_marginRight="@dimen/padding_16dp"
+                    android:layout_marginBottom="@dimen/padding_20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
