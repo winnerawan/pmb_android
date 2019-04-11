@@ -1,21 +1,26 @@
 package net.winnerawan.androidx.ui.main.info;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import net.winnerawan.androidx.R;
 import net.winnerawan.androidx.data.network.model.Info;
-import net.winnerawan.androidx.data.network.model.Prestation;
 import net.winnerawan.androidx.di.component.ActivityComponent;
 import net.winnerawan.androidx.ui.adapter.InfoAdapter;
 import net.winnerawan.androidx.ui.base.BaseFragment;
+import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartActivity;
+import net.winnerawan.androidx.ui.main.chart.circular.CircularChartActivity;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -58,6 +63,22 @@ public class InfoFragment extends BaseFragment implements InfoView {
         return view;
     }
 
+    @OnClick(R.id.trackChart)
+    void trackChart() {
+        Intent intent = new Intent(getBaseActivity(), CircularChartActivity.class);
+        intent.putExtra("title", "Pendaftar Per Jalur");
+        intent.putExtra("url", "http://pmb.unipma.ac.id/grafik_sebaran");
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.distributionChart)
+    void distributionChart() {
+        Intent intent = new Intent(getBaseActivity(), ChoroplethChartActivity.class);
+        intent.putExtra("title", "Sebaran Asal Sekolah Berdasarkan Kota/Kabupaten");
+        intent.putExtra("url", "http://pmb.unipma.ac.id/grafik_sebaran");
+        startActivity(intent);
+    }
+
     @Override
     protected void setUp(View view) {
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -68,5 +89,12 @@ public class InfoFragment extends BaseFragment implements InfoView {
     @Override
     public void showInfos(List<Info> infos) {
         adapter.addItems(infos);
+    }
+
+    private void openFragment(Fragment fragment) {
+        final FragmentTransaction transaction = getBaseActivity().getSupportFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.anim_pop_left, R.anim.anim_push_left);
+//        transaction.addToBackStack(null);
+        transaction.replace(R.id.main_container, fragment).commit();
     }
 }

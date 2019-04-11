@@ -1,4 +1,4 @@
-package net.winnerawan.androidx.ui.main.search;
+package net.winnerawan.androidx.ui.search;
 
 import net.winnerawan.androidx.data.network.model.Selection;
 import net.winnerawan.androidx.ui.base.MvpView;

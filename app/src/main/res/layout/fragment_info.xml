@@ -36,15 +36,14 @@
             android:layout_height="wrap_content"/>
 
     <LinearLayout
-
+            android:background="@color/white"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         <LinearLayout
                 android:id="@+id/a"
-                android:foreground="?attr/selectableItemBackground"
-                android:background="@color/white"
+                android:background="?attr/selectableItemBackground"
                 app:layout_constraintBaseline_toBaselineOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,6 +53,7 @@
 
 
             <LinearLayout
+                    android:id="@+id/trackChart"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
@@ -100,6 +100,8 @@
 
 
             <LinearLayout
+                    android:background="?attr/selectableItemBackground"
+                    android:id="@+id/distributionChart"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"

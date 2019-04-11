@@ -5,11 +5,12 @@ import net.winnerawan.androidx.ui.detail.DetailActivity;
 import net.winnerawan.androidx.ui.help.AboutFragment;
 import net.winnerawan.androidx.ui.login.LoginActivity;
 import net.winnerawan.androidx.ui.main.MainActivity;
+import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartActivity;
 import net.winnerawan.androidx.ui.main.detailinfo.DetailInfoFragment;
 import net.winnerawan.androidx.ui.main.home.HomeFragment;
 import net.winnerawan.androidx.ui.main.info.InfoFragment;
 import net.winnerawan.androidx.ui.main.sign.SignFragment;
-import net.winnerawan.androidx.ui.main.search.SearchActivity;
+import net.winnerawan.androidx.ui.search.SearchActivity;
 import net.winnerawan.androidx.ui.splash.SplashActivity;
 import dagger.Component;
 import net.winnerawan.androidx.di.PerActivity;
@@ -47,4 +48,6 @@ public interface ActivityComponent {
     void inject(InfoFragment infoFragment);
 
     void inject(DetailInfoFragment detailInfoFragment);
+
+    void inject(ChoroplethChartActivity chartActivity);
 }

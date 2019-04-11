@@ -1,4 +1,4 @@
-package net.winnerawan.androidx.ui.main.search;
+package net.winnerawan.androidx.ui.search;
 
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:id="@+id/rootLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar__" layout="@layout/toolbar_chart"/>
+
+    <LinearLayout
+            android:layout_below="@id/toolbar__"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            <TextView
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:id="@+id/title"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <com.anychart.AnyChartView
+                    android:id="@+id/choropleth_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+
+            <TextView
+                    android:text="@string/tracks"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:padding="@dimen/padding_16dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <com.anychart.AnyChartView
+                    android:id="@+id/circular_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progress_bar"
+            style="@style/AVLoadingIndicatorView"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorName="LineScaleIndicator"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+</RelativeLayout>

@@ -11,6 +11,9 @@ import net.winnerawan.androidx.ui.adapter.AnnouncementAdapter;
 import net.winnerawan.androidx.ui.adapter.InfoAdapter;
 import net.winnerawan.androidx.ui.adapter.PrestationAdapter;
 import net.winnerawan.androidx.ui.adapter.SearchAdapter;
+import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartMvpPresenter;
+import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartPresenter;
+import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartView;
 import net.winnerawan.androidx.ui.detail.DetailMvpPresenter;
 import net.winnerawan.androidx.ui.help.AboutMvpPresenter;
 import net.winnerawan.androidx.ui.help.AboutPresenter;
@@ -25,19 +28,21 @@ import dagger.Module;
 import dagger.Provides;
 
 import net.winnerawan.androidx.di.ActivityContext;
+import net.winnerawan.androidx.ui.main.chart.circular.CircularChartMvpPresenter;
+import net.winnerawan.androidx.ui.main.chart.circular.CircularChartPresenter;
+import net.winnerawan.androidx.ui.main.chart.circular.CircularChartView;
 import net.winnerawan.androidx.ui.main.detailinfo.DetailInfoMvpPresenter;
 import net.winnerawan.androidx.ui.main.detailinfo.DetailInfoPresenter;
 import net.winnerawan.androidx.ui.main.detailinfo.DetailInfoView;
-import net.winnerawan.androidx.ui.main.home.AnnouncementSliderAdapter;
 import net.winnerawan.androidx.ui.main.home.HomeMvpPresenter;
 import net.winnerawan.androidx.ui.main.home.HomePresenter;
 import net.winnerawan.androidx.ui.main.home.HomeView;
 import net.winnerawan.androidx.ui.main.info.InfoMvpPresenter;
 import net.winnerawan.androidx.ui.main.info.InfoPresenter;
 import net.winnerawan.androidx.ui.main.info.InfoView;
-import net.winnerawan.androidx.ui.main.search.SearchMvpPresenter;
-import net.winnerawan.androidx.ui.main.search.SearchPresenter;
-import net.winnerawan.androidx.ui.main.search.SearchView;
+import net.winnerawan.androidx.ui.search.SearchMvpPresenter;
+import net.winnerawan.androidx.ui.search.SearchPresenter;
+import net.winnerawan.androidx.ui.search.SearchView;
 import net.winnerawan.androidx.ui.main.sign.SignMvpPresenter;
 import net.winnerawan.androidx.ui.main.sign.SignPresenter;
 import net.winnerawan.androidx.ui.main.sign.SignView;
@@ -163,6 +168,20 @@ public class ActivityModule {
     @PerActivity
     SearchMvpPresenter<SearchView> provideSearchPresenter(
             SearchPresenter<SearchView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    ChoroplethChartMvpPresenter<ChoroplethChartView> provideChoroplethChartPresenter(
+            ChoroplethChartPresenter<ChoroplethChartView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    CircularChartMvpPresenter<CircularChartView> provideCircularChartPresenter(
+            CircularChartPresenter<CircularChartView> presenter) {
         return presenter;
     }
 

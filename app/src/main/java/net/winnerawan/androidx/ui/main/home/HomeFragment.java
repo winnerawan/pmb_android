@@ -22,7 +22,7 @@ import net.winnerawan.androidx.ui.adapter.AnnouncementAdapter;
 import net.winnerawan.androidx.ui.adapter.PrestationAdapter;
 import net.winnerawan.androidx.ui.base.BaseFragment;
 import net.winnerawan.androidx.ui.helper.AutoScrollViewPager;
-import net.winnerawan.androidx.ui.main.search.SearchActivity;
+import net.winnerawan.androidx.ui.search.SearchActivity;
 
 import javax.inject.Inject;
 import java.util.List;
