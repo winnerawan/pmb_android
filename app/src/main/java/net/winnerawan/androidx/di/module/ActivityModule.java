@@ -11,9 +11,9 @@ import net.winnerawan.androidx.ui.adapter.AnnouncementAdapter;
 import net.winnerawan.androidx.ui.adapter.InfoAdapter;
 import net.winnerawan.androidx.ui.adapter.PrestationAdapter;
 import net.winnerawan.androidx.ui.adapter.SearchAdapter;
-import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartMvpPresenter;
-import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartPresenter;
-import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartView;
+import net.winnerawan.androidx.ui.main.chart.ChartMvpPresenter;
+import net.winnerawan.androidx.ui.main.chart.ChartPresenter;
+import net.winnerawan.androidx.ui.main.chart.ChartView;
 import net.winnerawan.androidx.ui.detail.DetailMvpPresenter;
 import net.winnerawan.androidx.ui.help.AboutMvpPresenter;
 import net.winnerawan.androidx.ui.help.AboutPresenter;
@@ -173,8 +173,8 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    ChoroplethChartMvpPresenter<ChoroplethChartView> provideChoroplethChartPresenter(
-            ChoroplethChartPresenter<ChoroplethChartView> presenter) {
+    ChartMvpPresenter<ChartView> provideChoroplethChartPresenter(
+            ChartPresenter<ChartView> presenter) {
         return presenter;
     }
 

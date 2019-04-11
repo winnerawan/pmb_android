@@ -1,4 +1,4 @@
-package net.winnerawan.androidx.ui.main.chart.choropleth;
+package net.winnerawan.androidx.ui.main.chart;
 
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -9,20 +9,11 @@ import com.anychart.APIlib;
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.SingleValueDataSet;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.CircularGauge;
 import com.anychart.charts.Map;
 import com.anychart.charts.Pie;
-import com.anychart.core.axes.Circular;
-import com.anychart.core.gauge.pointers.Bar;
 import com.anychart.core.map.series.Choropleth;
 import com.anychart.core.ui.ColorRange;
 import com.anychart.enums.*;
-import com.anychart.graphics.vector.Fill;
-import com.anychart.graphics.vector.SolidFill;
-import com.anychart.graphics.vector.text.HAlign;
-import com.anychart.graphics.vector.text.VAlign;
 import com.anychart.scales.LinearColor;
 import com.wang.avi.AVLoadingIndicatorView;
 import net.winnerawan.androidx.R;
@@ -33,10 +24,10 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChoroplethChartActivity extends BaseActivity implements ChoroplethChartView {
+public class ChartActivity extends BaseActivity implements ChartView {
 
     @Inject
-    ChoroplethChartMvpPresenter<ChoroplethChartView> presenter;
+    ChartMvpPresenter<ChartView> presenter;
 
     @BindView(R.id.title) TextView txtTitle;
 

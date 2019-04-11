@@ -5,7 +5,7 @@ import net.winnerawan.androidx.ui.detail.DetailActivity;
 import net.winnerawan.androidx.ui.help.AboutFragment;
 import net.winnerawan.androidx.ui.login.LoginActivity;
 import net.winnerawan.androidx.ui.main.MainActivity;
-import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartActivity;
+import net.winnerawan.androidx.ui.main.chart.ChartActivity;
 import net.winnerawan.androidx.ui.main.detailinfo.DetailInfoFragment;
 import net.winnerawan.androidx.ui.main.home.HomeFragment;
 import net.winnerawan.androidx.ui.main.info.InfoFragment;
@@ -49,5 +49,5 @@ public interface ActivityComponent {
 
     void inject(DetailInfoFragment detailInfoFragment);
 
-    void inject(ChoroplethChartActivity chartActivity);
+    void inject(ChartActivity chartActivity);
 }

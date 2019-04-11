@@ -19,7 +19,7 @@ import net.winnerawan.androidx.data.network.model.Info;
 import net.winnerawan.androidx.di.component.ActivityComponent;
 import net.winnerawan.androidx.ui.adapter.InfoAdapter;
 import net.winnerawan.androidx.ui.base.BaseFragment;
-import net.winnerawan.androidx.ui.main.chart.choropleth.ChoroplethChartActivity;
+import net.winnerawan.androidx.ui.main.chart.ChartActivity;
 import net.winnerawan.androidx.ui.main.chart.circular.CircularChartActivity;
 
 import javax.inject.Inject;
@@ -73,7 +73,7 @@ public class InfoFragment extends BaseFragment implements InfoView {
 
     @OnClick(R.id.distributionChart)
     void distributionChart() {
-        Intent intent = new Intent(getBaseActivity(), ChoroplethChartActivity.class);
+        Intent intent = new Intent(getBaseActivity(), ChartActivity.class);
         intent.putExtra("title", "Sebaran Asal Sekolah Berdasarkan Kota/Kabupaten");
         intent.putExtra("url", "http://pmb.unipma.ac.id/grafik_sebaran");
         startActivity(intent);
