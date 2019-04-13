@@ -31,13 +31,13 @@
                       android:host="pmb.unipma.ac.id" />
             </intent-filter>
         </activity>
-        <activity android:name="id.ac.unipma.pmb.ui.main.MainActivity"/>
-        <activity android:name="id.ac.unipma.pmb.ui.detail.DetailActivity"/>
-        <activity android:name="ui.login.LoginActivity"/>
-        <activity android:name="ui.search.SearchActivity"/>
-        <activity android:name="ui.main.chart.ChartActivity"/>
-        <activity android:name="ui.main.detailinfo.DetailInfoActivity"/>
-        <activity android:name="ui.main.detailinfo.WebViewActivity"/>
+        <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.detail.DetailActivity"/>
+        <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".ui.search.SearchActivity"/>
+
+        <activity android:name=".ui.main.detailinfo.DetailInfoActivity"/>
+        <activity android:name=".ui.main.chart.ChartActivity"/>
 
         <meta-data
                 android:name="io.fabric.ApiKey"

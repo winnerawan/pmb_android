@@ -41,6 +41,7 @@ public class DetailInfoActivity extends BaseActivity implements DetailInfoView, 
     @Override
     protected void setUp() {
         mHtmlView.setListener(this, this);
+//        mHtmlView.setWebViewClient(new PmbWebViewClient());
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null) {
             info = (Info) bundle.getSerializable("info");
