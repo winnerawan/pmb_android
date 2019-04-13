@@ -6,7 +6,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <include android:id="@+id/toolbar__" layout="@layout/toolbar_chart"/>
+    <include android:id="@+id/toolbar__" layout="@layout/toolbar_back"/>
 
     <LinearLayout
             android:layout_below="@id/toolbar__"

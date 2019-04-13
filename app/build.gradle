@@ -24,7 +24,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "net.winnerawan.androidx"
+        applicationId "id.ac.unipma.pmb"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -42,12 +42,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"go-aplikasi.co\"")
+            buildConfigField("String", "BASE_URL", "\"next-innovation.co.id\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"go-aplikasi.co\"")
+            buildConfigField("String", "BASE_URL", "\"next-innovation.co.id\"")
             //shrinkResources true
             //zipAlignEnabled true
             //pseudoLocalesEnabled true
@@ -100,6 +100,8 @@ dependencies {
 
     // database
     implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
+    implementation 'org.sufficientlysecure:html-textview:3.6'
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
 
     // debug database
     debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
@@ -110,7 +112,7 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
-
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     // reactive
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"

@@ -7,14 +7,14 @@
 
     <include android:id="@+id/toolbar_" layout="@layout/toolbar_home"/>
 
-    <net.winnerawan.androidx.ui.helper.NonSwipeableViewPager
+    <ui.helper.NonSwipeableViewPager
             android:layout_below="@id/toolbar_"
             android:id="@+id/main_container"
             android:layout_width="match_parent"
             android:layout_above="@id/navigation"
             android:layout_height="wrap_content">
 
-    </net.winnerawan.androidx.ui.helper.NonSwipeableViewPager>
+    </ui.helper.NonSwipeableViewPager>
 
 
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
