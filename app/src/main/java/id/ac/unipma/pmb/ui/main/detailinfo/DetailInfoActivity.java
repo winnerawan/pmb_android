@@ -1,5 +1,7 @@
 package id.ac.unipma.pmb.ui.main.detailinfo;
 
+import butterknife.OnClick;
+import id.ac.unipma.pmb.data.network.model.Announcement;
 import id.ac.unipma.pmb.data.network.model.ContentInfo;
 import id.ac.unipma.pmb.data.network.model.Info;
 import id.ac.unipma.pmb.ui.base.BaseActivity;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import id.ac.unipma.pmb.utils.AppLogger;
 import im.delight.android.webview.AdvancedWebView;
 import id.ac.unipma.pmb.R;
 
@@ -23,7 +26,7 @@ public class DetailInfoActivity extends BaseActivity implements DetailInfoView, 
     @BindView(R.id.htmlview) AdvancedWebView mHtmlView;
 
     private Info info;
-
+    private Announcement announcement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,11 @@ public class DetailInfoActivity extends BaseActivity implements DetailInfoView, 
         setUp();
     }
 
+    @OnClick(R.id.back)
+    void back() {
+        finishAction();
+    }
+
     @Override
     protected void setUp() {
         mHtmlView.setListener(this, this);
@@ -45,20 +53,25 @@ public class DetailInfoActivity extends BaseActivity implements DetailInfoView, 
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null) {
             info = (Info) bundle.getSerializable("info");
-            setupView(info);
+            announcement = (Announcement) bundle.getSerializable("announcement");
+            setupView();
         }
     }
 
-    private void setupView(Info info) {
+    private void setupView() {
         if (info!=null) {
             if (info.getTitle()!=null) {
                 txtToolbar.setText(info.getTitle());
                 decideContent(info.getUrl());
             }
+        } else {
+            txtToolbar.setText(getString(R.string.announcement));
+            decideContent(announcement.getGambar());
         }
     }
 
     private void decideContent(String link) {
+        AppLogger.e("link: "+link);
         switch (link) {
             case "http://pmb.unipma.ac.id/jadwal":
                 presenter.getContentSchedule(link);
@@ -72,6 +85,9 @@ public class DetailInfoActivity extends BaseActivity implements DetailInfoView, 
             case "http://pmb.unipma.ac.id/prodi":
                 presenter.getContentStudy(link);
                 break;
+                default:
+                    mHtmlView.loadUrl("https://docs.google.com/gview?embedded=true&url="+link);
+                    break;
         }
     }
 

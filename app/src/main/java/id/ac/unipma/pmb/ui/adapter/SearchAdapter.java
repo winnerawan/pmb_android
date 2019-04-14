@@ -88,7 +88,7 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public interface Callback {
-//        void onSelectionSelected(Selection selection);
+        void onSelectionSelected(Selection selection);
 
         void onEmptyViewRetryClick();
     }
@@ -125,8 +125,8 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             if (selection.getName() != null) {
                 name.setText(selection.getName());
             }
-            if (selection.getProdi() != null) {
-                prodi.setText(selection.getProdi());
+            if (selection.getStudy() != null) {
+                prodi.setText(selection.getStudy());
             }
             if (selection.getNoReg() != null) {
                 no_reg.setText(selection.getNoReg());
@@ -134,9 +134,9 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
 
             itemView.setOnClickListener(v -> {
-                if (selection.getId() != null) {
+                if (selection.getNoReg() != null) {
                     try {
-                        //mCallback.onSelectionSelected(selection);
+                        mCallback.onSelectionSelected(selection);
                     } catch (Exception e) {
                         AppLogger.d("id error");
                     }

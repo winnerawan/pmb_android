@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:attrs="http://schemas.android.com/tools"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+    <include app:layout_constraintTop_toTopOf="parent" android:id="@+id/toolbar_" layout="@layout/toolbar_home_new"/>
+
+    <androidx.core.widget.NestedScrollView
+            app:layout_constraintTop_toBottomOf="@id/toolbar_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/scrollable"
+                android:paddingBottom="54dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:id="@+id/slider"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <id.ac.unipma.pmb.ui.helper.AutoScrollViewPager
+                        android:paddingLeft="@dimen/padding_4dp"
+                        android:paddingRight="@dimen/padding_4dp"
+                        android:paddingBottom="@dimen/padding_8dp"
+                        android:paddingTop="@dimen/padding_8dp"
+                        android:id="@+id/view_pager_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <com.rd.PageIndicatorView
+                        android:id="@+id/pageIndicatorView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:piv_animationType="scale"
+                        app:piv_dynamicCount="true"
+                        android:layout_gravity="center_horizontal"
+                        app:piv_interactiveAnimation="true"
+                        app:piv_selectedColor="#BBDEFB"
+                        app:piv_unselectedColor="@color/gray_300"
+                        app:piv_viewPager="@id/view_pager_slider"
+                        attrs:piv_padding="10dp"
+                        attrs:piv_radius="6dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_marginTop="@dimen/padding_16dp" android:layout_marginBottom="@dimen/padding_16dp" android:id="@+id/menus" app:layout_constraintTop_toBottomOf="@id/slider" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <include  layout="@layout/layout_menu"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/top5"
+                    app:layout_constraintTop_toBottomOf="@id/menus"
+                    android:weightSum="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/padding_16dp"
+                    android:paddingBottom="@dimen/padding_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:contentDescription="@null"
+                        android:src="@mipmap/ic_top"
+                        android:layout_weight="0.10"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/padding_24dp"/>
+                <TextView
+                        android:id="@+id/marqueetext"
+                        android:text="@string/top5"
+                        android:textSize="14sp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:fadingEdge="horizontal"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:layout_weight="0.90"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    app:layout_constraintTop_toBottomOf="@id/top5"
+                    android:id="@+id/recycler_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"/>
+
+            <TextView
+                    android:id="@+id/textnews"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_info"
+                    android:padding="@dimen/padding_16dp"
+                    android:text="@string/news"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    app:layout_constraintTop_toBottomOf="@id/textnews"
+                    android:id="@+id/recycler_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

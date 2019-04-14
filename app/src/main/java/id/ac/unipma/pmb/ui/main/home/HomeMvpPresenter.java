@@ -6,5 +6,6 @@ import id.ac.unipma.pmb.ui.base.MvpView;
 public interface HomeMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
 
     void getAnnouncements();
-    void getPrestations();
+    void getNews();
+    void getMenuInfos();
 }

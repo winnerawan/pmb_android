@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import android.os.Environment;
 import id.ac.unipma.pmb.R;
+
+import java.io.File;
 
 
 /**
@@ -18,6 +21,14 @@ public final class AppUtils {
 
     private AppUtils() {
         // This class is not publicly instantiable
+    }
+
+    public static void createUnipmaDir() {
+        String folder_main = "PMB_UNIPMA";
+        File f = new File(Environment.getExternalStorageDirectory(), folder_main);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
     }
 
     public static void openPlayStoreForApp(Context context) {

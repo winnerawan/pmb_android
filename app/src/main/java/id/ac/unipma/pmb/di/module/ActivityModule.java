@@ -2,8 +2,7 @@ package id.ac.unipma.pmb.di.module;
 
 import id.ac.unipma.pmb.ui.account.AccountMvpPresenter;
 import id.ac.unipma.pmb.ui.account.AccountPresenter;
-import id.ac.unipma.pmb.ui.adapter.AnnouncementAdapter;
-import id.ac.unipma.pmb.ui.adapter.SearchAdapter;
+import id.ac.unipma.pmb.ui.adapter.*;
 import id.ac.unipma.pmb.ui.detail.DetailMvpPresenter;
 import id.ac.unipma.pmb.ui.detail.DetailPresenter;
 import id.ac.unipma.pmb.ui.help.AboutMvpPresenter;
@@ -29,8 +28,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import id.ac.unipma.pmb.di.PerActivity;
 import id.ac.unipma.pmb.ui.account.AccountView;
-import id.ac.unipma.pmb.ui.adapter.InfoAdapter;
-import id.ac.unipma.pmb.ui.adapter.PrestationAdapter;
 import id.ac.unipma.pmb.ui.main.chart.ChartView;
 import id.ac.unipma.pmb.ui.help.AboutView;
 import id.ac.unipma.pmb.ui.login.LoginMvpPresenter;
@@ -179,6 +176,16 @@ public class ActivityModule {
     @Provides
     PrestationAdapter providePrestationAdapter() {
         return new PrestationAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    MenuInfoAdapter provideMenuInfoAdapter() {
+        return new MenuInfoAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    NewsAdapter provideNewsAdapter() {
+        return new NewsAdapter(new ArrayList<>());
     }
 
     @Provides

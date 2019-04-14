@@ -3,7 +3,9 @@ package id.ac.unipma.pmb.data.network.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Announcement {
+import java.io.Serializable;
+
+public class Announcement implements Serializable {
 
     @SerializedName("id_berita")
     @Expose

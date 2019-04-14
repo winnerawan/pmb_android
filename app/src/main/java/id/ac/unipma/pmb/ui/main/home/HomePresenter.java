@@ -41,17 +41,17 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
     }
 
     @Override
-    public void getPrestations() {
-        getCompositeDisposable().add(getDataManager().getPrestations()
+    public void getNews() {
+        getCompositeDisposable().add(getDataManager().getNews()
                 .observeOn(getSchedulerProvider().ui())
                 .subscribeOn(getSchedulerProvider().io())
-                .subscribe(prestations -> {
+                .subscribe(news -> {
                     if (!isViewAttached()) return;
-                    if (prestations==null) {
+                    if (news==null) {
                         return;
                     }
-                    getMvpView().showPrestations(prestations);
-                    getMvpView().stopShimmer();
+                    getMvpView().showNews(news);
+//                    getMvpView().stopShimmer();
                 }, throwable -> {
                     if (!isViewAttached()) {
                         return;
@@ -59,6 +59,32 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                     getMvpView().hideLoading();
 
                     if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        handleApiError(anError);
+                    }
+                }));
+    }
+
+    @Override
+    public void getMenuInfos() {
+        getCompositeDisposable().add(getDataManager().getMenuInfo()
+                .observeOn(getSchedulerProvider().ui())
+                .subscribeOn(getSchedulerProvider().io())
+                .subscribe(menuInfos -> {
+                    if (!isViewAttached()) return;
+                    if (menuInfos==null) {
+                        return;
+                    }
+                    getMvpView().showMenuInfos(menuInfos);
+                }, throwable -> {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+                    getMvpView().hideLoading();
+
+
+                    if (throwable instanceof ANError) {
+
                         ANError anError = (ANError) throwable;
                         handleApiError(anError);
                     }

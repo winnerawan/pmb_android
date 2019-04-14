@@ -43,4 +43,29 @@ public class SearchPresenter<V extends SearchView> extends BasePresenter<V> impl
                 }));
     }
 
+    @Override
+    public void getKwitansi(String noReg) {
+        getCompositeDisposable().add(getDataManager().getKwitansi(noReg)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(file -> {
+                    if (!isViewAttached()) return;
+                    if (file==null) {
+                        return;
+                    }
+                    getMvpView().showKwitansi(file);
+                    getMvpView().hideLoading();
+                }, throwable -> {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+
+                    getMvpView().hideLoading();
+
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        handleApiError(anError);
+                    }
+                }));
+    }
 }

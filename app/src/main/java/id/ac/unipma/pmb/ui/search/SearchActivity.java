@@ -1,5 +1,8 @@
 package id.ac.unipma.pmb.ui.search;
 
+import android.content.Intent;
+import android.net.Uri;
+import id.ac.unipma.pmb.utils.AppUtils;
 import id.ac.unipma.pmb.utils.KeyboardUtils;
 import id.ac.unipma.pmb.utils.ViewUtils;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import id.ac.unipma.pmb.ui.adapter.SearchAdapter;
 import id.ac.unipma.pmb.ui.base.BaseActivity;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.util.List;
 
 public class SearchActivity extends BaseActivity implements SearchView, SearchAdapter.Callback {
@@ -89,5 +93,19 @@ public class SearchActivity extends BaseActivity implements SearchView, SearchAd
         txtSearch.setText("");
         adapter.clear();
         KeyboardUtils.showSoftInput(txtSearch, this);
+    }
+
+    @Override
+    public void onSelectionSelected(Selection selection) {
+        AppUtils.createUnipmaDir();
+        presenter.getKwitansi(selection.getBase64());
+    }
+
+    @Override
+    public void showKwitansi(File file) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse("http://www.unipma.ac.id/images/penggumuman/Pengumuman%20Wisuda%20Sarjana%20V%20dan%20Pascasarjana%20V.pdf"), "application/pdf");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
     }
 }

@@ -24,6 +24,16 @@ public class AnnouncementSliderAdapter extends PagerAdapter {
     private List<Announcement> announcements;
     private LayoutInflater inflater;
     private Context context;
+    private Callback callback;
+    private Announcement announcement;
+
+    public interface Callback {
+        void onAnnouncementSelected(Announcement announcement);
+    }
+
+    public void setCallback(Callback call) {
+        this.callback = call;
+    }
 
     public AnnouncementSliderAdapter(List<Announcement> announcements, Context context) {
         this.context = context;
@@ -62,9 +72,9 @@ public class AnnouncementSliderAdapter extends PagerAdapter {
             if (announcement.getIdBerita()!=null) {
                 getScreenWidth();
                 if (announcement.getIdBerita()% 2 == 1) {
-                    bg.setBackground(sliderLayout.getContext().getResources().getDrawable(R.drawable.gradient0));
+                    bg.setBackground(sliderLayout.getContext().getResources().getDrawable(R.drawable.gradientannouncement1));
                 } else {
-                    bg.setBackground(sliderLayout.getContext().getResources().getDrawable(R.drawable.gradient1));
+                    bg.setBackground(sliderLayout.getContext().getResources().getDrawable(R.drawable.gradientannouncement2));
                 }
             }
         }
@@ -76,8 +86,7 @@ public class AnnouncementSliderAdapter extends PagerAdapter {
         view.addView(sliderLayout, 0);
 
         sliderLayout.setOnClickListener(v -> {
-
-
+            callback.onAnnouncementSelected(announcement);
         });
 
         return sliderLayout;
@@ -93,7 +102,6 @@ public class AnnouncementSliderAdapter extends PagerAdapter {
     }
 
     private static int getScreenWidth() {
-        AppLogger.e("SCREEN WIDTH = " + Resources.getSystem().getDisplayMetrics().densityDpi);
         return Resources.getSystem().getDisplayMetrics().densityDpi;
     }
 

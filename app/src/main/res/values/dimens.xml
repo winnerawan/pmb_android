@@ -16,4 +16,5 @@
     <dimen name="padding_26dp">26dp</dimen>
     <dimen name="height_48dp" type="dimen" format="float">48.0dp</dimen>
     <dimen name="nol_dp" type="dimen" format="float">0.0dp</dimen>
+    <dimen name="width_233dp">233dp</dimen>
 </resources>

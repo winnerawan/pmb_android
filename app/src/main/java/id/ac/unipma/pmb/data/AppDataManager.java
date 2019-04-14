@@ -13,6 +13,7 @@ import io.reactivex.Single;
 import id.ac.unipma.pmb.data.network.model.*;
 import id.ac.unipma.pmb.di.ApplicationContext;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -76,8 +77,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<List<Prestation>> getPrestations() {
-        return mApiHelper.getPrestations();
+    public Single<List<News>> getNews() {
+        return mApiHelper.getNews();
     }
 
     @Override
@@ -88,6 +89,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<Info>> getInfos() {
         return mApiHelper.getInfos();
+    }
+
+    @Override
+    public Single<List<MenuInfo>> getMenuInfo() {
+        return mApiHelper.getMenuInfo();
     }
 
     @Override
@@ -108,6 +114,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<ContentInfo> getStudyInfo(String link) {
         return mApiHelper.getStudyInfo(link);
+    }
+
+    @Override
+    public Single<File> getKwitansi(String noReg) {
+        return mApiHelper.getKwitansi(noReg);
     }
 }
 

@@ -7,29 +7,18 @@ import java.io.Serializable;
 
 public class Selection implements Serializable {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
     @SerializedName("no_reg")
     @Expose
     private String noReg;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("prodi")
+    @SerializedName("study")
     @Expose
-    private String prodi;
-    @SerializedName("link")
+    private String study;
+    @SerializedName("base64")
     @Expose
-    private String link;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String base64;
 
     public String getNoReg() {
         return noReg;
@@ -47,19 +36,19 @@ public class Selection implements Serializable {
         this.name = name;
     }
 
-    public String getProdi() {
-        return prodi;
+    public String getStudy() {
+        return study;
     }
 
-    public void setProdi(String prodi) {
-        this.prodi = prodi;
+    public void setStudy(String study) {
+        this.study = study;
     }
 
-    public String getLink() {
-        return link;
+    public String getBase64() {
+        return base64;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setBase64(String base64) {
+        this.base64 = base64;
     }
 }

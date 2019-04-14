@@ -35,4 +35,13 @@
     <string name="track">Track</string>
     <string name="information">Information</string>
     <string name="tracks">Pendaftar Per Jalur</string>
+    <string name="announcement">Announcement</string>
+    <string name="news">News</string>
+    <string name="readmore">Read more</string>
+    <string name="requirements">Requirements</string>
+    <string name="program_study">Program Study</string>
+    <string name="cost">Cost</string>
+    <string name="terms">Terms</string>
+    <string name="flow">Flow</string>
+    <string name="top5">Universitas Persatuan Guru Republik Indonesia Madiun, Top 5 PTS di Jawa Timur</string>
 </resources>

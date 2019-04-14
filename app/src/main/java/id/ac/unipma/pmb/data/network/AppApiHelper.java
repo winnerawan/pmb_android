@@ -1,6 +1,8 @@
 package id.ac.unipma.pmb.data.network;
 
 
+import android.os.Environment;
+import android.view.Menu;
 import id.ac.unipma.pmb.data.network.model.*;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 import io.reactivex.Single;
@@ -8,6 +10,7 @@ import id.ac.unipma.pmb.data.network.model.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.io.File;
 import java.util.List;
 
 
@@ -34,15 +37,16 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<List<Prestation>> getPrestations() {
-        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_PRESTATIONS)
+    public Single<List<News>> getNews() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_NEWS)
                 .build()
-                .getObjectListSingle(Prestation.class);
+                .getObjectListSingle(News.class);
     }
 
     @Override
     public Single<List<Selection>> search(String keyword) {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SEARCH)
+                .addQueryParameter("key", keyword)
                 .build()
                 .getObjectListSingle(Selection.class);
     }
@@ -52,6 +56,14 @@ public class AppApiHelper implements ApiHelper {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_INFOS)
                 .build()
                 .getObjectListSingle(Info.class);
+    }
+
+
+    @Override
+    public Single<List<MenuInfo>> getMenuInfo() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_MENUINFOS)
+                .build()
+                .getObjectListSingle(MenuInfo.class);
     }
 
     @Override
@@ -84,5 +96,15 @@ public class AppApiHelper implements ApiHelper {
                 .addQueryParameter("link", link)
                 .build()
                 .getObjectSingle(ContentInfo.class);
+    }
+
+    @Override
+    public Single<File> getKwitansi(String noReg) {
+        return Rx2AndroidNetworking.download(ApiEndPoint.ENDPOINT_KWITANSI,
+                Environment.getExternalStorageDirectory() +"/PMB_UNIPMA/", noReg+".pdf")
+                .addQueryParameter("no_reg", noReg)
+                .addQueryParameter("button", "")
+                .build()
+                .getObjectSingle(File.class);
     }
 }
