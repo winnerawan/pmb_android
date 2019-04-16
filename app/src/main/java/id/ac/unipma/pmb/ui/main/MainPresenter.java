@@ -13,5 +13,8 @@ public class MainPresenter<V extends MainView> extends BasePresenter<V> implemen
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
-
+    @Override
+    public boolean isLoggedIn() {
+        return getDataManager().isLoggedIn();
+    }
 }

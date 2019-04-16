@@ -6,9 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import id.ac.unipma.pmb.R;
 import id.ac.unipma.pmb.di.component.ActivityComponent;
+import id.ac.unipma.pmb.ui.account.AccountFragment;
 import id.ac.unipma.pmb.ui.base.BaseFragment;
 
 import javax.inject.Inject;
@@ -17,6 +23,9 @@ public class SignFragment extends BaseFragment implements SignView {
 
     @Inject
     SignMvpPresenter<SignView> presenter;
+
+    @BindView(R.id.username) AppCompatEditText txtUsername;
+    @BindView(R.id.password) AppCompatEditText txtPassword;
 
     public static SignFragment newInstance() {
 
@@ -43,8 +52,23 @@ public class SignFragment extends BaseFragment implements SignView {
         return view;
     }
 
+    @OnClick(R.id.btnLogin)
+    void login() {
+        presenter.login(txtUsername.getText().toString(), txtPassword.getText().toString());
+    }
+
     @Override
     protected void setUp(View view) {
 
+    }
+
+    @Override
+    public void replaceSignFragment() {
+        openFragment();
+    }
+
+    private void openFragment() {
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_sign, AccountFragment.newInstance()).commit();
     }
 }

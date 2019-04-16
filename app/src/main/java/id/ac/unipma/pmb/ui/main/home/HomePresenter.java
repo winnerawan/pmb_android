@@ -90,4 +90,9 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                     }
                 }));
     }
+
+    @Override
+    public boolean getLoggedIn() {
+        return getDataManager().isLoggedIn();
+    }
 }

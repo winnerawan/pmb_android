@@ -15,5 +15,6 @@ public interface PreferencesHelper {
     boolean isFirstTime();
     void setFirstTime(boolean isFirstTime);
 
-
+    int getStep();
+    void setStep(int step);
 }

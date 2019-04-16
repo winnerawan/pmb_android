@@ -9,7 +9,11 @@
     <string name="appid">ca-app-pub-9400864410179150~6165476966</string>
     <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
     <string name="app_market_link">"market://details?id="</string>
-    <string name="signup"><b><u>Sign Up</u></b></string>
+    <string name="signup">
+        <b>
+            <u>Sign Up</u>
+        </b>
+    </string>
     <string name="message_empty_email">Please provide a non empty email!</string>
     <string name="message_invalid_email">Please provide a valid email!</string>
     <string name="message_empty_password">Please provide a non empty password!</string>
@@ -44,4 +48,26 @@
     <string name="terms">Terms</string>
     <string name="flow">Flow</string>
     <string name="top5">Universitas Persatuan Guru Republik Indonesia Madiun, Top 5 PTS di Jawa Timur</string>
+    <string name="ktp_not_yet">Belum punya KTP?</string>
+    <string name="ktp_sim_ortu">Jangan khawatir, Anda bisa menggunakan KTP atau SIM orang tua.</string>
+    <string name="ktp_sim">Sebelum membayar biaya pendaftaran di BANK pastikan Anda membawa KTP atau SIM.</string>
+    <string name="flow_1_title">Pay to BANK BRI</string>
+    <string name="flow_1_desc">
+        <p align="justify">Pay to bank bri Rp. 250,000, - anywhere only through TELLER by mentioning IKIP PGRI
+            MADIUN Online SPMB / University PGRI Madiun / UNIPMA and submitting a KTP or SIM. Make sure the Student
+            Candidates get the Username and Password on the proof of payment from TELLER.
+        </p>
+    </string>
+    <string name="flow_2_title">Login &amp; Fill in All Form</string>
+    <string name="flow_2_desc">
+        <p align="justify">Login to the web or this application and fill in all form</p>
+    </string>
+    <string name="flow_3_title">Just Wait</string>
+    <string name="flow_3_desc">
+        <p align="justify">Wait for the Announcement of the Selection Results</p>
+    </string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">GOT IT</string>
+    <string name="wrong_auth">Wrong Authentication</string>
 </resources>

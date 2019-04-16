@@ -107,4 +107,13 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectSingle(File.class);
     }
+
+    @Override
+    public Single<LoginResponse> login(String username, String password) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGIN)
+                .addBodyParameter("username", username)
+                .addBodyParameter("password", password)
+                .build()
+                .getObjectSingle(LoginResponse.class);
+    }
 }

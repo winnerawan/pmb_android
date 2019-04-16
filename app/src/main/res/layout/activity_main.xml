@@ -6,7 +6,13 @@
                 android:layout_height="match_parent">
 
     <!--<include android:id="@+id/toolbar_" layout="@layout/toolbar_home"/>-->
-
+    <FrameLayout
+            android:alpha="0"
+            android:id="@+id/dim"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dimBg"/>
     <id.ac.unipma.pmb.ui.helper.NonSwipeableViewPager
             android:layout_below="@id/toolbar_"
             android:id="@+id/main_container"
@@ -25,7 +31,10 @@
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             app:layout_anchorGravity="bottom"
-            app:menu="@menu/bottom_navigation"
             app:labelVisibilityMode="labeled"
             android:layout_height="wrap_content"/>
+
+    <LinearLayout android:layout_alignParentBottom="true" android:layout_above="@id/navigation" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/layout_req" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:visibility="gone" android:id="@+id/dialog_req" layout="@layout/dialog_req"/>
+    </LinearLayout>
 </RelativeLayout>

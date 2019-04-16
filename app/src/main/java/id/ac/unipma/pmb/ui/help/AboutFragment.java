@@ -131,7 +131,7 @@ public class AboutFragment extends BaseFragment implements AboutView, OnMapReady
 
     private void setAddressMdt() {
         icAddr.setBackground(getResources().getDrawable(R.drawable.food_ic_merchant_detail));
-        txtTitle.setText(getString(R.string.app_name).toUpperCase());
+        txtTitle.setText(AppConstants.UNIPMA);
         txtAddress.setText(AppConstants.ADDR_UNIPMA);
         txtDesc.setVisibility(View.VISIBLE);
         txtDesc.setText(AppConstants.DESC_PMB);

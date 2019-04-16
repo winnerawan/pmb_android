@@ -1,7 +1,15 @@
 package id.ac.unipma.pmb.ui.main.home;
 
+import android.app.Activity;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.anychart.core.sankey.elements.Flow;
+import com.mancj.slideup.SlideUp;
+import com.mancj.slideup.SlideUpBuilder;
 import id.ac.unipma.pmb.data.network.model.Announcement;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +36,9 @@ import id.ac.unipma.pmb.ui.adapter.NewsAdapter;
 import id.ac.unipma.pmb.ui.adapter.PrestationAdapter;
 import id.ac.unipma.pmb.ui.base.BaseFragment;
 import id.ac.unipma.pmb.ui.helper.AutoScrollViewPager;
+import id.ac.unipma.pmb.ui.login.LoginActivity;
 import id.ac.unipma.pmb.ui.main.detailinfo.DetailInfoActivity;
+import id.ac.unipma.pmb.ui.main.flow.FlowActivity;
 import id.ac.unipma.pmb.ui.search.SearchActivity;
 
 import javax.inject.Inject;
@@ -56,6 +66,17 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
     @BindView(R.id.recycler_info) RecyclerView mRecylerInfo;
 
     @BindView(R.id.marqueetext) TextView mMarqueeText;
+
+    @BindView(R.id.login) TextView mLogin;
+
+//    @BindView(R.id.dim) FrameLayout DIM;
+//
+//    @BindView(R.id.dialog_req) RelativeLayout mDialogReq;
+//
+//    @BindView(R.id.btnDialog) Button mBtnDialog;
+    private SlideUp slideUp;
+    private OnRequirementSelected mCallback;
+
 //    @BindView(R.id.shimmer) ShimmerFrameLayout mShimmer;
 
     public static HomeFragment newInstance() {
@@ -80,13 +101,43 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
             presenter.onAttach(this);
         }
 
+        if (presenter.getLoggedIn()) {
+            mLogin.setVisibility(View.INVISIBLE);
+        } else {
+            mLogin.setVisibility(View.VISIBLE);
+            mLogin.setOnClickListener(v -> startActivity(new Intent(getBaseActivity(), LoginActivity.class)));
+        }
+
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            mCallback = (OnRequirementSelected) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
     }
 
     @OnClick(R.id.search)
     void search() {
         startActivity(new Intent(getBaseActivity(), SearchActivity.class));
     }
+
+    @OnClick(R.id.requirements)
+    void req() {
+        mCallback.onRequirementSelected();
+    }
+
+    @OnClick(R.id.flow)
+    void flow() {
+        startActivity(new Intent(getBaseActivity(), FlowActivity.class));
+    }
+
     
     @Override
     protected void setUp(View view) {
@@ -170,4 +221,9 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
         DisplayMetrics displayMetrics = Objects.requireNonNull(getActivity()).getResources().getDisplayMetrics();
         return Math.round(10 * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
+
+    public interface OnRequirementSelected {
+        public void onRequirementSelected();
+    }
+
 }

@@ -72,6 +72,16 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public int getStep() {
+        return mPreferencesHelper.getStep();
+    }
+
+    @Override
+    public void setStep(int step) {
+        mPreferencesHelper.setStep(step);
+    }
+
+    @Override
     public Single<List<Announcement>> getAnnouncements() {
         return mApiHelper.getAnnouncements();
     }
@@ -120,5 +130,12 @@ public class AppDataManager implements DataManager {
     public Single<File> getKwitansi(String noReg) {
         return mApiHelper.getKwitansi(noReg);
     }
+
+    @Override
+    public Single<LoginResponse> login(String username, String password) {
+        return mApiHelper.login(username, password);
+    }
+
+
 }
 

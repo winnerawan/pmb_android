@@ -21,7 +21,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     private static final String KEY_LOGGED_IN = "KEY_LOGGED_IN";
     private static final String KEY_FIRST_TIME = "KEY_FIRST_TIME";
-
+    private static final String KEY_STEP = "KEY_STEP";
 
     private final SharedPreferences mPrefs;
 
@@ -51,4 +51,13 @@ public class AppPreferencesHelper implements PreferencesHelper {
         mPrefs.edit().putBoolean(KEY_FIRST_TIME, isFirstTime).apply();
     }
 
+    @Override
+    public int getStep() {
+        return mPrefs.getInt(KEY_STEP, 1);
+    }
+
+    @Override
+    public void setStep(int step) {
+        mPrefs.edit().putInt(KEY_STEP, step).apply();
+    }
 }

@@ -42,7 +42,7 @@
         </FrameLayout>
 
         <FrameLayout
-                android:id="@+id/terms"
+                android:id="@+id/flow"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"

@@ -25,5 +25,6 @@ public interface ApiHelper {
     Single<ContentInfo> getTrackInfo(String link);
     Single<ContentInfo> getScheduleInfo(String link);
     Single<ContentInfo> getStudyInfo(String link);
+    Single<LoginResponse> login(String username, String password);
     Single<File> getKwitansi(String noReg);
 }

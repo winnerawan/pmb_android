@@ -8,4 +8,6 @@ public interface HomeMvpPresenter<V extends MvpView> extends MvpPresenter<V> {
     void getAnnouncements();
     void getNews();
     void getMenuInfos();
+
+    boolean getLoggedIn();
 }

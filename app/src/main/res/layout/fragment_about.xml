@@ -52,11 +52,12 @@
                         android:layout_height="?android:attr/actionBarSize">
 
                     <include
+                            android:visibility="invisible"
                             layout="@layout/layout_social_toolbar"/>
 
                 </androidx.appcompat.widget.Toolbar>
 
-                <LinearLayout android:background="@color/white" android:id="@+id/content_tab_mdt" android:layout_below="@id/toolbar_social" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:background="@color/white" android:id="@+id/content_tab_mdt"  android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
                     <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
