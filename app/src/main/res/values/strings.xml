@@ -81,4 +81,10 @@
     <string name="text_fill_bio">Fill in Biodata</string>
     <string name="text_fill_grade">Fill in Grade</string>
     <string name="text_choose_track">Choose Track</string>
+    <string name="label_mail_button">Mail</string>
+    <string name="unipma_email">rektorat@unipma.ac.id</string>
+    <string name="related_post">Related News</string>
+    <string name="title_source_url_article">Source</string>
+    <string name="share">Share</string>
+    <string name="news_detail">News Detail</string>
 </resources>

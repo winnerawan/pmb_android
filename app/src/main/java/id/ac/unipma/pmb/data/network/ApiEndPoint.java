@@ -23,4 +23,5 @@ public class ApiEndPoint {
     public static final String ENDPOINT_KWITANSI = "http://pmb.unipma.ac.id/print_kuitansi.php";
     public static final String ENDPOINT_MENUINFOS = API_URL + "/menus";
     public static final String ENDPOINT_LOGIN = API_URL + "/login";
+    public static final String ENDPOINT_NEWS_DETAIL = API_URL + "/newsDetail";
 }

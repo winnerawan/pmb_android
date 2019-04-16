@@ -21,12 +21,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import id.ac.unipma.pmb.R;
+import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter;
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements MainView, HomeFragment.OnRequirementSelected {
+public class MainActivity extends BaseActivity implements MainView, HomeFragment.OnRequirementSelected, AccountFragment.OnPrivacyPolicySelected {
 
     @Inject
     MainMvpPresenter<MainView> presenter;
@@ -35,7 +37,10 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     @BindView(R.id.main_container) NonSwipeableViewPager mViewpager;
     @BindView(R.id.dim) FrameLayout DIM;
     @BindView(R.id.dialog_req) RelativeLayout mDialogReq;
-    @BindView(R.id.btnDialog) Button mBtnDialog;
+    @BindView(R.id.dialog_privacy) RelativeLayout mDialogPrivacy;
+    @BindView(R.id.btnDialogReq) Button mBtnDialogReq;;
+    @BindView(R.id.btnDialogPrivacy) Button mBtnDialogPrivacy;
+    @BindView(R.id.htmlviewprivacy) HtmlTextView mHtmlPrivacy;
     private SlideUp slideUp;
 
     @Override
@@ -49,7 +54,12 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
         presenter.onAttach(this);
         setUp();
 
-        mBtnDialog.setOnClickListener(v -> {
+        mBtnDialogReq.setOnClickListener(v -> {
+            if (slideUp != null && slideUp.isVisible()) {
+                slideUp.hide();
+            }
+        });
+        mBtnDialogPrivacy.setOnClickListener(v -> {
             if (slideUp != null && slideUp.isVisible()) {
                 slideUp.hide();
             }
@@ -88,6 +98,11 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     }
 
     @Override
+    public void onPrivacyPolicySelected() {
+        dialogPrivacy().show();
+    }
+
+    @Override
     public void onBackPressed() {
         if (slideUp != null) {
             if (slideUp.isVisible()) {
@@ -103,6 +118,32 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
 
     private SlideUp dialogReq() {
         slideUp = new SlideUpBuilder(mDialogReq)
+                .withListeners(new SlideUp.Listener.Events() {
+                    @Override
+                    public void onSlide(float percent) {
+                        DIM.setAlpha(1 - (percent / 100));
+
+                    }
+
+                    @Override
+                    public void onVisibilityChanged(int visibility) {
+                        if (visibility== View.VISIBLE) {
+                            mNavigation.setVisibility(View.INVISIBLE);
+                        } else {
+                            mNavigation.setVisibility(View.VISIBLE);
+                        }
+                    }
+                })
+                .withStartGravity(Gravity.BOTTOM)
+                .withGesturesEnabled(true)
+                .withStartState(SlideUp.State.SHOWED)
+                .build();
+        return slideUp;
+    }
+
+    private SlideUp dialogPrivacy() {
+        mHtmlPrivacy.setHtml(R.raw.privacy, new HtmlHttpImageGetter(mHtmlPrivacy));
+        slideUp = new SlideUpBuilder(mDialogPrivacy)
                 .withListeners(new SlideUp.Listener.Events() {
                     @Override
                     public void onSlide(float percent) {

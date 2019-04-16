@@ -102,6 +102,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Single<NewsDetail> getNewsDetail(String link) {
+        return mApiHelper.getNewsDetail(link);
+    }
+
+    @Override
     public Single<List<Selection>> search(String keyword) {
         return mApiHelper.search(keyword);
     }

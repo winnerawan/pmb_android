@@ -1,5 +1,6 @@
 package id.ac.unipma.pmb.ui.account;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,6 +38,8 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     @BindView(R.id.container_step4) LinearLayout mStep4;
 
+    private OnPrivacyPolicySelected mCallback;
+
     public static AccountFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -62,9 +65,26 @@ public class AccountFragment extends BaseFragment implements AccountView {
         return view;
     }
 
+    @Override
+    public void onAttach(@NonNull Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            mCallback = (OnPrivacyPolicySelected) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
     @OnClick(R.id.container_rate_app)
     void rate() {
         AppUtils.openPlayStoreForApp(getBaseActivity());
+    }
+
+    @OnClick(R.id.container_privacy_policy)
+    void privacy() {
+        mCallback.onPrivacyPolicySelected();
     }
 
     @OnClick(R.id.logOut)
@@ -108,5 +128,9 @@ public class AccountFragment extends BaseFragment implements AccountView {
                 mStep4.setEnabled(false);
                 break;
         }
+    }
+
+    public interface OnPrivacyPolicySelected {
+        void onPrivacyPolicySelected();
     }
 }

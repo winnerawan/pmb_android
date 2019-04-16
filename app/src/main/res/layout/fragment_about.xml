@@ -65,6 +65,7 @@
                             android:orientation="vertical">
 
                         <LinearLayout
+                                android:paddingTop="@dimen/padding_8dp"
                                 android:id="@+id/containerAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -180,6 +181,58 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="2dp"
                                 android:background="#7fd1d1d1" />
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:layout_marginTop="16dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:src="@drawable/ic_mail" />
+
+                            <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1">
+
+                                <TextView
+                                        android:text="@string/unipma_email"
+                                        android:id="@+id/text_merchant_mail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:tag="binding_4"
+                                        android:textColor="#333333"
+                                        android:textSize="14sp" />
+
+                                <TextView
+                                        android:visibility="invisible"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:textColor="#777777"
+                                        android:textSize="0sp" />
+                            </RelativeLayout>
+
+                            <Button
+                                    android:id="@+id/button_mail"
+                                    android:layout_width="75dp"
+                                    android:layout_height="28dp"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@drawable/food_selector_call_button"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/label_mail_button"
+                                    android:textColor="#ffffff"
+                                    android:textSize="14sp" />
+                        </LinearLayout>
+
 
                         <View
                                 android:layout_width="match_parent"

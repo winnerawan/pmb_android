@@ -35,6 +35,7 @@ import id.ac.unipma.pmb.ui.adapter.MenuInfoAdapter;
 import id.ac.unipma.pmb.ui.adapter.NewsAdapter;
 import id.ac.unipma.pmb.ui.adapter.PrestationAdapter;
 import id.ac.unipma.pmb.ui.base.BaseFragment;
+import id.ac.unipma.pmb.ui.detail.DetailActivity;
 import id.ac.unipma.pmb.ui.helper.AutoScrollViewPager;
 import id.ac.unipma.pmb.ui.login.LoginActivity;
 import id.ac.unipma.pmb.ui.main.detailinfo.DetailInfoActivity;
@@ -42,10 +43,11 @@ import id.ac.unipma.pmb.ui.main.flow.FlowActivity;
 import id.ac.unipma.pmb.ui.search.SearchActivity;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class HomeFragment extends BaseFragment implements HomeView, AnnouncementSliderAdapter.Callback, MenuInfoAdapter.Callback {
+public class HomeFragment extends BaseFragment implements HomeView, AnnouncementSliderAdapter.Callback, MenuInfoAdapter.Callback, NewsAdapter.Callback {
 
     @Inject
     HomeMvpPresenter<HomeView> presenter;
@@ -69,12 +71,6 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
 
     @BindView(R.id.login) TextView mLogin;
 
-//    @BindView(R.id.dim) FrameLayout DIM;
-//
-//    @BindView(R.id.dialog_req) RelativeLayout mDialogReq;
-//
-//    @BindView(R.id.btnDialog) Button mBtnDialog;
-    private SlideUp slideUp;
     private OnRequirementSelected mCallback;
     @BindView(R.id.shimmer0) ShimmerFrameLayout mShimmer0;
     @BindView(R.id.shimmer1) ShimmerFrameLayout mShimmer1;
@@ -106,7 +102,10 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
             mLogin.setVisibility(View.INVISIBLE);
         } else {
             mLogin.setVisibility(View.VISIBLE);
-            mLogin.setOnClickListener(v -> startActivity(new Intent(getBaseActivity(), LoginActivity.class)));
+            mLogin.setOnClickListener(v -> {
+                startActivity(new Intent(getBaseActivity(), LoginActivity.class));
+//                getBaseActivity().finish();
+            });
         }
 
         return view;
@@ -142,6 +141,7 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
     
     @Override
     protected void setUp(View view) {
+        mNewsAdapter.setCallback(this);
         mMarqueeText.setSelected(true);
         mMarqueeText.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         mMarqueeText.setSingleLine(true);
@@ -170,7 +170,8 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
 
     @Override
     public void showNews(List<News> news) {
-        mNewsAdapter.addItems(news);
+        List<News> second = new ArrayList<News>(news.subList(0, 7));
+        mNewsAdapter.addItems(second);
     }
 
     @Override
@@ -194,7 +195,14 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
         }
     }
 
-        @Override
+    @Override
+    public void onNewsSelected(News news) {
+        Intent intent = new Intent(getBaseActivity(), DetailActivity.class);
+        intent.putExtra("news", news);
+        startActivity(intent);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         if (mShimmer1!=null && mShimmer2!=null && mShimmer0!=null) {

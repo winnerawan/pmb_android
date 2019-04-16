@@ -45,6 +45,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Override
     public void gotoMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
-        finish();
+        finishAffinity();
     }
 }

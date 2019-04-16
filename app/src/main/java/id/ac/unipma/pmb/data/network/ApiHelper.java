@@ -18,6 +18,7 @@ public interface ApiHelper {
 
     Single<List<Announcement>> getAnnouncements();
     Single<List<News>> getNews();
+    Single<NewsDetail> getNewsDetail(String link);
     Single<List<Selection>> search(String keyword);
     Single<List<Info>> getInfos();
     Single<List<MenuInfo>> getMenuInfo();
@@ -26,5 +27,7 @@ public interface ApiHelper {
     Single<ContentInfo> getScheduleInfo(String link);
     Single<ContentInfo> getStudyInfo(String link);
     Single<LoginResponse> login(String username, String password);
+
+
     Single<File> getKwitansi(String noReg);
 }

@@ -140,7 +140,7 @@ public class NewsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             itemView.setOnClickListener(v -> {
                 if (newss.getLink() != null) {
                     try {
-                        //mCallback.onNewsSelected(news);
+                        mCallback.onNewsSelected(newss);
                     } catch (Exception e) {
                         AppLogger.d("id error");
                     }

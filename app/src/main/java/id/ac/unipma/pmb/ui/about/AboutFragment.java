@@ -98,6 +98,20 @@ public class AboutFragment extends BaseFragment implements AboutView, OnMapReady
         return view;
     }
 
+    @OnClick(R.id.button_mail)
+    void mail() {
+        Intent emailIntent;
+
+        emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:rektorat@unipma.ac.id"));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "text");
+        if (emailIntent.resolveActivity(getBaseActivity().getPackageManager()) != null) {
+            startActivity(emailIntent);
+        } else {
+            //not_found_email_apps;
+        }
+    }
 
 
     @OnClick(R.id.button_call)

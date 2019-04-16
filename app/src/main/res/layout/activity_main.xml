@@ -36,5 +36,6 @@
 
     <LinearLayout android:layout_alignParentBottom="true" android:layout_above="@id/navigation" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/layout_req" android:layout_width="match_parent" android:layout_height="wrap_content">
         <include android:visibility="gone" android:id="@+id/dialog_req" layout="@layout/dialog_req"/>
+        <include android:visibility="gone" android:id="@+id/dialog_privacy" layout="@layout/dialog_privacy"/>
     </LinearLayout>
 </RelativeLayout>

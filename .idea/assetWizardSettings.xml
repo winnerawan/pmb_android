@@ -66,8 +66,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/ic_flow.png" />
-                                      <entry key="outputName" value="ic_pilihprodi" />
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/25-512.png" />
+                                      <entry key="outputName" value="ic_mail" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>
                                   </option>

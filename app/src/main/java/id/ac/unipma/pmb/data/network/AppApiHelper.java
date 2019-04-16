@@ -44,6 +44,14 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
+    public Single<NewsDetail> getNewsDetail(String link) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_NEWS_DETAIL)
+                .addQueryParameter("link", link)
+                .build()
+                .getObjectSingle(NewsDetail.class);
+    }
+
+    @Override
     public Single<List<Selection>> search(String keyword) {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SEARCH)
                 .addQueryParameter("key", keyword)
