@@ -9,11 +9,10 @@ import com.mancj.slideup.SlideUp;
 import com.mancj.slideup.SlideUpBuilder;
 import id.ac.unipma.pmb.ui.account.AccountFragment;
 import id.ac.unipma.pmb.ui.base.BaseActivity;
-import id.ac.unipma.pmb.ui.help.AboutFragment;
+import id.ac.unipma.pmb.ui.about.AboutFragment;
 import id.ac.unipma.pmb.ui.helper.NonSwipeableViewPager;
 import id.ac.unipma.pmb.ui.main.home.HomeFragment;
 import id.ac.unipma.pmb.ui.main.info.InfoFragment;
-import id.ac.unipma.pmb.ui.main.sign.SignFragment;
 import id.ac.unipma.pmb.utils.ViewUtils;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -32,16 +31,12 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     @Inject
     MainMvpPresenter<MainView> presenter;
 
-    @BindView(R.id.navigation)
-    BottomNavigationViewEx mNavigation;
-    @BindView(R.id.main_container)
-    NonSwipeableViewPager mViewpager;
+    @BindView(R.id.navigation) BottomNavigationViewEx mNavigation;
+    @BindView(R.id.main_container) NonSwipeableViewPager mViewpager;
     @BindView(R.id.dim) FrameLayout DIM;
     @BindView(R.id.dialog_req) RelativeLayout mDialogReq;
     @BindView(R.id.btnDialog) Button mBtnDialog;
     private SlideUp slideUp;
-    private boolean isLoggedIn;
-    private Callback callback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +59,6 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
 
     @Override
     protected void setUp() {
-        isLoggedIn = presenter.isLoggedIn();
         ViewUtils.setStatusBar(this);
         initTabs();
     }
@@ -106,13 +100,6 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
         }
     }
 
-    public interface Callback {
-        void onReqSelected();
-    }
-
-    public void setCallback(Callback call) {
-        this.callback = call;
-    }
 
     private SlideUp dialogReq() {
         slideUp = new SlideUpBuilder(mDialogReq)
@@ -133,11 +120,8 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
                     }
                 })
                 .withStartGravity(Gravity.BOTTOM)
-//                .withLoggingEnabled(true)
-//                .withAutoSlideDuration(2000)
                 .withGesturesEnabled(true)
                 .withStartState(SlideUp.State.SHOWED)
-//                .withSlideFromOtherView(findViewById(R.id.rootview))
                 .build();
         return slideUp;
     }

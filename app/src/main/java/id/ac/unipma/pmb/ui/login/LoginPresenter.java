@@ -37,6 +37,7 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
                     }
                     if (!loginResponse.getError()) {
                         setLoggedIn(true);
+                        setName(loginResponse.getInfo().getName());
                         setStep(loginResponse.getInfo().getStatus());
                         getMvpView().gotoMainActivity();
                     } else {
@@ -63,5 +64,10 @@ public class LoginPresenter<V extends LoginView> extends BasePresenter<V> implem
     @Override
     public void setStep(int step) {
         getDataManager().setStep(step);
+    }
+
+    @Override
+    public void setName(String name) {
+        getDataManager().setStudentName(name);
     }
 }

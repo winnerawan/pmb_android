@@ -76,8 +76,9 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
 //    @BindView(R.id.btnDialog) Button mBtnDialog;
     private SlideUp slideUp;
     private OnRequirementSelected mCallback;
-
-//    @BindView(R.id.shimmer) ShimmerFrameLayout mShimmer;
+    @BindView(R.id.shimmer0) ShimmerFrameLayout mShimmer0;
+    @BindView(R.id.shimmer1) ShimmerFrameLayout mShimmer1;
+    @BindView(R.id.shimmer2) ShimmerFrameLayout mShimmer2;
 
     public static HomeFragment newInstance() {
         
@@ -193,29 +194,47 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
         }
     }
 
-    //    @Override
-//    public void onStart() {
-//        super.onStart();
-//        if (mShimmer!=null) {
-//            mShimmer.startShimmer();
-//        }
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (mShimmer!=null) {
-//            mShimmer.startShimmer();
-//        }
-//    }
-//
-//    @Override
-//    public void stopShimmer() {
-//        if (mShimmer!=null) {
-//            mShimmer.stopShimmer();
-//            mShimmer.setVisibility(View.GONE);
-//        }
-//    }
+        @Override
+    public void onStart() {
+        super.onStart();
+        if (mShimmer1!=null && mShimmer2!=null && mShimmer0!=null) {
+            mShimmer1.startShimmer();
+            mShimmer2.startShimmer();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mShimmer1!=null && mShimmer2!=null && mShimmer0!=null) {
+            mShimmer1.startShimmer();
+            mShimmer2.startShimmer();
+        }
+    }
+
+    @Override
+    public void stopShimmer2() {
+        if (mShimmer2!=null) {
+            mShimmer2.stopShimmer();
+            mShimmer2.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void stopShimmer1() {
+        if (mShimmer1!=null) {
+            mShimmer1.stopShimmer();
+            mShimmer1.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void stopShimmer0() {
+        if (mShimmer0!=null) {
+            mShimmer0.stopShimmer();
+            mShimmer0.setVisibility(View.GONE);
+        }
+    }
 
     private int dpToPx() {
         DisplayMetrics displayMetrics = Objects.requireNonNull(getActivity()).getResources().getDisplayMetrics();

@@ -15,6 +15,8 @@ public class LoginInfo {
     @SerializedName("status")
     @Expose
     private Integer status;
+    @SerializedName("nama_mhs")
+    private String name;
 
     public Integer getUsername() {
         return username;
@@ -38,5 +40,13 @@ public class LoginInfo {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

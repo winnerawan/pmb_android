@@ -3,7 +3,7 @@ package id.ac.unipma.pmb.di.component;
 import id.ac.unipma.pmb.di.module.ActivityModule;
 import id.ac.unipma.pmb.ui.account.AccountFragment;
 import id.ac.unipma.pmb.ui.detail.DetailActivity;
-import id.ac.unipma.pmb.ui.help.AboutFragment;
+import id.ac.unipma.pmb.ui.about.AboutFragment;
 import id.ac.unipma.pmb.ui.login.LoginActivity;
 import id.ac.unipma.pmb.ui.main.MainActivity;
 import id.ac.unipma.pmb.ui.main.chart.ChartActivity;

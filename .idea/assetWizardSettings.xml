@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_ondemand_video_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_playlist_add_check_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -66,10 +66,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$PROJECT_DIR$/../../MadiunToday/app/src/main/res/mipmap-xxxhdpi/ic_tv_off.png" />
-                                      <entry key="outputName" value="ic_tv" />
-                                      <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/ic_flow.png" />
+                                      <entry key="outputName" value="ic_pilihprodi" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>
                                   </option>

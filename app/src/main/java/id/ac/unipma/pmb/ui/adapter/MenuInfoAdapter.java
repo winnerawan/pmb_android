@@ -75,7 +75,7 @@ public class MenuInfoAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         if (infos != null && infos.size() > 0) {
             return infos.size();
         } else {
-            return 1;
+            return 0;
         }
     }
 

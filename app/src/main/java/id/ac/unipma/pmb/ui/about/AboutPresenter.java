@@ -1,4 +1,4 @@
-package id.ac.unipma.pmb.ui.help;
+package id.ac.unipma.pmb.ui.about;
 
 import io.reactivex.disposables.CompositeDisposable;
 import id.ac.unipma.pmb.data.DataManager;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Winnerawan T
+  ~ Unauthorized copying of this file, via any medium is strictly
+  ~ prohibited Proprietary and confidential
+  ~ Written by Winnerawan T <winnerawan@gmail.com>, March 2018
+  -->
+
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<corners android:radius="5dp"/>
+<solid android:color="#ff3c5b9b"/>
+    </shape>

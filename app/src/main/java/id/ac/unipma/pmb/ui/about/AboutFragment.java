@@ -1,4 +1,4 @@
-package id.ac.unipma.pmb.ui.help;
+package id.ac.unipma.pmb.ui.about;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -114,12 +114,10 @@ public class AboutFragment extends BaseFragment implements AboutView, OnMapReady
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-       new Handler().postDelayed(() -> {
            gGoogleMap = googleMap;
            setupMap();
            setAddressMdt();
            setContact(AppConstants.TELP_UNIPMA, AppConstants.TELP);
-       }, 100);
     }
 
     private void setAddressDev() {

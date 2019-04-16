@@ -70,4 +70,15 @@
     <string name="skip">Skip</string>
     <string name="start">GOT IT</string>
     <string name="wrong_auth">Wrong Authentication</string>
+    <string name="text_edit">Edit</string>
+    <string name="logout">Logout</string>
+    <string name="text_change_language">Change Language</string>
+    <string name="text_tos">Term of Service</string>
+    <string name="text_privacy_policy">Privacy Policy</string>
+    <string name="text_rate_app">Rate Application</string>
+    <string name="text_program_study">Program Study</string>
+    <string name="text_choose_program_study">Choose Program Study</string>
+    <string name="text_fill_bio">Fill in Biodata</string>
+    <string name="text_fill_grade">Fill in Grade</string>
+    <string name="text_choose_track">Choose Track</string>
 </resources>

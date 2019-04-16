@@ -1,4 +1,4 @@
-package id.ac.unipma.pmb.ui.help;
+package id.ac.unipma.pmb.ui.about;
 
 
 import id.ac.unipma.pmb.ui.base.MvpView;

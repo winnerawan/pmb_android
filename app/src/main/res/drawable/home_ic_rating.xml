@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 Winnerawan T
+  ~ Unauthorized copying of this file, via any medium is strictly
+  ~ prohibited Proprietary and confidential
+  ~ Written by Winnerawan T <winnerawan@gmail.com>, March 2018
+  -->
+<vector android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<path android:fillColor="#c7c7c7" android:pathData="M12 4L9.4719 9.9294211 3 10.481474 7.9095 14.710895 6.438 21 12 17.665316 17.562 21 16.0905 14.710895 21 10.481474 14.5281 9.9294211Z"/>
+    </vector>

@@ -82,6 +82,16 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public String getStudentName() {
+        return mPreferencesHelper.getStudentName();
+    }
+
+    @Override
+    public void setStudentName(String name) {
+        mPreferencesHelper.setStudentName(name);
+    }
+
+    @Override
     public Single<List<Announcement>> getAnnouncements() {
         return mApiHelper.getAnnouncements();
     }

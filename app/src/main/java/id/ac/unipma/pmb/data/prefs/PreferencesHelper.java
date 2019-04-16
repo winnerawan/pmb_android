@@ -17,4 +17,7 @@ public interface PreferencesHelper {
 
     int getStep();
     void setStep(int step);
+
+    String getStudentName();
+    void setStudentName(String name);
 }

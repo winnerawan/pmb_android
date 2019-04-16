@@ -24,6 +24,7 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                     if (announcements==null) {
                         return;
                     }
+                    getMvpView().stopShimmer0();
                     getMvpView().showAnnouncements(announcements);
                 }, throwable -> {
                     if (!isViewAttached()) {
@@ -51,7 +52,7 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                         return;
                     }
                     getMvpView().showNews(news);
-//                    getMvpView().stopShimmer();
+                    getMvpView().stopShimmer2();
                 }, throwable -> {
                     if (!isViewAttached()) {
                         return;
@@ -75,6 +76,7 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                     if (menuInfos==null) {
                         return;
                     }
+                    getMvpView().stopShimmer1();
                     getMvpView().showMenuInfos(menuInfos);
                 }, throwable -> {
                     if (!isViewAttached()) {

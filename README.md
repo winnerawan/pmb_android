@@ -5,7 +5,7 @@ THIS NOT OFFICIALY APP
 [<img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/id_get.svg" width="20%">](https://play.google.com/store/apps/details?id=id.ac.unipma.pmb)
 
 
-[<img src="./art/art.png">](./art/art.png)
+[<img src="./art/arts.png">](./art/arts.png)
 
 [![COPYRIGHT](https://img.shields.io/badge/LICENSE%20-MIT-green.svg)](./license.md) <br />
 Unless covered under some other license, all content in this repository is shared under an MIT license. See [license.md](./license.md) for details.<br/>

@@ -14,5 +14,7 @@ public interface HomeView extends MvpView {
     void showNews(List<News> news);
 
     void showMenuInfos(List<MenuInfo> menuInfos);
-//    void stopShimmer();
+    void stopShimmer2();
+    void stopShimmer1();
+    void stopShimmer0();
 }
