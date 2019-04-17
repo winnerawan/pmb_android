@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:attrs="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <FrameLayout
+                android:alpha="0"
+                android:id="@+id/dim"
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dimBg"/>
+        <!--<ProgressBar android:layout_width="match_parent" android:layout_height="wrap_content"/>-->
+        <LinearLayout
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <include layout="@layout/toolbar_back"/>
+
+
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_marginBottom="54dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                <LinearLayout android:background="@color/white" android:orientation="vertical"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content">
+
+                    <com.levitnudi.legacytableview.LegacyTableView
+                            android:id="@+id/cost_table_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_above="@id/navigation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/layout_req"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <include android:visibility="gone" android:id="@+id/dialog_cost" layout="@layout/dialog_cost"/>
+        </LinearLayout>
+        <include
+                android:id="@+id/card_cost_info"
+                layout="@layout/cost_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_margin="@dimen/padding_16dp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:tag="binding_21">
+
+        <LinearLayout
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/container_"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:tag="binding_22">
+
+            <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/ic_faculty"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:srcCompat="@drawable/ic_toga" />
+
+            <TextView
+                    android:id="@+id/faculty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#cc333333"
+                    android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+                android:id="@+id/step1_bottom_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="65dp"
+                android:background="#e6e6e6" />
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                app:el_duration="200"
+                app:el_expanded="false">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:layout_marginLeft="45dp"
+                        android:orientation="vertical"
+                        android:id="@+id/container_program"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical" >
+
+
+
+                </LinearLayout>
+
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="#e6e6e6" />
+            </LinearLayout>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

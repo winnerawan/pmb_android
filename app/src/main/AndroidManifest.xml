@@ -56,6 +56,9 @@
                 android:name=".ui.main.home.PlayerActivity"
                 android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"/>
         <activity android:name=".ui.main.flow.FlowActivity"/>
+        <activity android:name=".ui.cost.CostActivity"/>
+        <activity android:name=".ui.prody.ProdyActivity"/>
+        <activity android:name=".ui.main.accreditation.AccreditationActivity"/>
 
         <meta-data
                 android:name="io.fabric.ApiKey"

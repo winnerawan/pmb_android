@@ -6,13 +6,7 @@
                 android:layout_height="match_parent">
 
     <!--<include android:id="@+id/toolbar_" layout="@layout/toolbar_home"/>-->
-    <FrameLayout
-            android:alpha="0"
-            android:id="@+id/dim"
-            android:fitsSystemWindows="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/dimBg"/>
+
     <id.ac.unipma.pmb.ui.helper.NonSwipeableViewPager
             android:layout_below="@id/toolbar_"
             android:id="@+id/main_container"
@@ -21,7 +15,13 @@
             android:layout_height="wrap_content">
 
     </id.ac.unipma.pmb.ui.helper.NonSwipeableViewPager>
-
+    <FrameLayout
+            android:alpha="0"
+            android:id="@+id/dim"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dimBg"/>
 
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
             android:id="@+id/navigation"
@@ -37,5 +37,6 @@
     <LinearLayout android:layout_alignParentBottom="true" android:layout_above="@id/navigation" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/layout_req" android:layout_width="match_parent" android:layout_height="wrap_content">
         <include android:visibility="gone" android:id="@+id/dialog_req" layout="@layout/dialog_req"/>
         <include android:visibility="gone" android:id="@+id/dialog_privacy" layout="@layout/dialog_privacy"/>
+        <include android:visibility="gone" android:id="@+id/dialog_language" layout="@layout/dialog_language"/>
     </LinearLayout>
 </RelativeLayout>

@@ -124,4 +124,18 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectSingle(LoginResponse.class);
     }
+
+    @Override
+    public Single<List<Cost>> getCosts() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_COST)
+                .build()
+                .getObjectListSingle(Cost.class);
+    }
+
+    @Override
+    public Single<List<Faculty>> getProgramStudy() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_PROGRAM_STUDY)
+                .build()
+                .getObjectListSingle(Faculty.class);
+    }
 }

@@ -35,11 +35,14 @@ import id.ac.unipma.pmb.ui.adapter.MenuInfoAdapter;
 import id.ac.unipma.pmb.ui.adapter.NewsAdapter;
 import id.ac.unipma.pmb.ui.adapter.PrestationAdapter;
 import id.ac.unipma.pmb.ui.base.BaseFragment;
+import id.ac.unipma.pmb.ui.cost.CostActivity;
 import id.ac.unipma.pmb.ui.detail.DetailActivity;
 import id.ac.unipma.pmb.ui.helper.AutoScrollViewPager;
 import id.ac.unipma.pmb.ui.login.LoginActivity;
+import id.ac.unipma.pmb.ui.main.accreditation.AccreditationActivity;
 import id.ac.unipma.pmb.ui.main.detailinfo.DetailInfoActivity;
 import id.ac.unipma.pmb.ui.main.flow.FlowActivity;
+import id.ac.unipma.pmb.ui.prody.ProdyActivity;
 import id.ac.unipma.pmb.ui.search.SearchActivity;
 
 import javax.inject.Inject;
@@ -138,6 +141,10 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
         startActivity(new Intent(getBaseActivity(), FlowActivity.class));
     }
 
+    @OnClick(R.id.cost)
+    void cost() {
+        startActivity(new Intent(getBaseActivity(), CostActivity.class));
+    }
     
     @Override
     protected void setUp(View view) {
@@ -190,8 +197,23 @@ public class HomeFragment extends BaseFragment implements HomeView, Announcement
 
     @Override
     public void onMenuInfoSelected(MenuInfo info) {
-        if (info.getId()==4) {
-            startActivity(new Intent(getBaseActivity(), PlayerActivity.class));
+        switch (info.getId()) {
+            case 1:
+                startActivity(new Intent(getBaseActivity(), ProdyActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(getBaseActivity(), AccreditationActivity.class));
+                break;
+            case 3:
+                Intent intent = new Intent(getBaseActivity(), DetailInfoActivity.class);
+                Announcement announcement = new Announcement();
+                announcement.setGambar("http://pics.unipma.ac.id/content/kalender/KalenderAkademik.pdf");
+                intent.putExtra("announcement", announcement);
+                startActivity(intent);
+                break;
+            case 4:
+                startActivity(new Intent(getBaseActivity(), PlayerActivity.class));
+                break;
         }
     }
 

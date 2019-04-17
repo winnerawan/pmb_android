@@ -24,4 +24,6 @@ public class ApiEndPoint {
     public static final String ENDPOINT_MENUINFOS = API_URL + "/menus";
     public static final String ENDPOINT_LOGIN = API_URL + "/login";
     public static final String ENDPOINT_NEWS_DETAIL = API_URL + "/newsDetail";
+    public static final String ENDPOINT_COST = API_URL + "/cost";
+    public static final String ENDPOINT_PROGRAM_STUDY = API_URL + "/prody";
 }

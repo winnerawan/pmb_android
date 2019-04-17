@@ -1,6 +1,7 @@
 package id.ac.unipma.pmb.ui.detail;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,7 @@ public class DetailActivity extends BaseActivity implements DetailView {
     @BindView(R.id.image) ImageView mImageView;
 
     private News news;
+    private Typeface typeface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,11 @@ public class DetailActivity extends BaseActivity implements DetailView {
         setUp();
     }
 
+    @OnClick(R.id.back)
+    void back() {
+        finish();
+    }
+
     @OnClick(R.id.txt_source)
     void gotoSource() {
         Intent dial = new Intent(Intent.ACTION_VIEW);
@@ -61,6 +68,7 @@ public class DetailActivity extends BaseActivity implements DetailView {
 
     @Override
     protected void setUp() {
+        typeface = Typeface.createFromAsset(getAssets(), "fonts/google_sans.ttf");
         mToolbar.setText(getString(R.string.news_detail));
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null) {
@@ -104,7 +112,9 @@ public class DetailActivity extends BaseActivity implements DetailView {
 
     private void setupNewsDetail(NewsDetail news) {
         txtTitle.setHtml(news.getTitle());
+        txtFirst.setTypeface(typeface);
         txtFirst.setHtml(news.getFirst());
+        txtCenter.setTypeface(typeface);
         txtCenter.setHtml(news.getCenter());
         txtDate.setHtml(news.getDate());
         txtWriter.setHtml(news.getWriter());

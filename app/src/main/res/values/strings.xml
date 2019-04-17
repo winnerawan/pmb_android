@@ -87,4 +87,16 @@
     <string name="title_source_url_article">Source</string>
     <string name="share">Share</string>
     <string name="news_detail">News Detail</string>
+    <string name="total_cost_">Total Costs = </string>
+    <string name="calculate_total_cost">Calculate Total Costs</string>
+    <string name="formula_total_cost">Total Costs = (Biaya Semester) + (BPI sesuai Gelombang) + (PKKMB / Ospek)</string>
+    <string name="cost_desc">
+        - Kelas reguler sore ditambah biaya Rp. 750.000/Semester\n
+        - Mahasiswa yang menempuh semester 9 dan seterusnya dikenakan 50% dari biaya semester\n
+        - Biaya semester termasuk (SKS,SPP,Hereg,Penunjang,PPL,KKN,Skripsi,Ujian Skripsi,Praktikum)
+    </string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
 </resources>

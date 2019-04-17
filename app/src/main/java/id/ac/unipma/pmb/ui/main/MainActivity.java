@@ -1,13 +1,21 @@
 package id.ac.unipma.pmb.ui.main;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.mancj.slideup.SlideUp;
 import com.mancj.slideup.SlideUpBuilder;
 import id.ac.unipma.pmb.ui.account.AccountFragment;
+import id.ac.unipma.pmb.ui.adapter.LanguageAdapter;
 import id.ac.unipma.pmb.ui.base.BaseActivity;
 import id.ac.unipma.pmb.ui.about.AboutFragment;
 import id.ac.unipma.pmb.ui.helper.NonSwipeableViewPager;
@@ -27,20 +35,31 @@ import org.sufficientlysecure.htmltextview.HtmlTextView;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class MainActivity extends BaseActivity implements MainView, HomeFragment.OnRequirementSelected, AccountFragment.OnPrivacyPolicySelected {
+public class MainActivity extends BaseActivity implements MainView,
+        HomeFragment.OnRequirementSelected,
+        AccountFragment.OnPrivacyPolicySelected, AccountFragment.OnChangeLanguage,
+        LanguageAdapter.LocaleListener {
 
     @Inject
     MainMvpPresenter<MainView> presenter;
-
+    @Inject
+    LinearLayoutManager mLayoutManager;
     @BindView(R.id.navigation) BottomNavigationViewEx mNavigation;
     @BindView(R.id.main_container) NonSwipeableViewPager mViewpager;
     @BindView(R.id.dim) FrameLayout DIM;
     @BindView(R.id.dialog_req) RelativeLayout mDialogReq;
     @BindView(R.id.dialog_privacy) RelativeLayout mDialogPrivacy;
-    @BindView(R.id.btnDialogReq) Button mBtnDialogReq;;
+    @BindView(R.id.dialog_language) RelativeLayout mDialogLang;
+    @BindView(R.id.btnDialogReq) Button mBtnDialogReq;
     @BindView(R.id.btnDialogPrivacy) Button mBtnDialogPrivacy;
     @BindView(R.id.htmlviewprivacy) HtmlTextView mHtmlPrivacy;
+    @BindView(R.id.recycler_language) RecyclerView mRecyclerLanguages;
+
+    private LanguageAdapter mLanguageAdapter;
+
+    private String[] languages;
     private SlideUp slideUp;
 
     @Override
@@ -71,6 +90,7 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     protected void setUp() {
         ViewUtils.setStatusBar(this);
         initTabs();
+        setUpLang();
     }
 
     private void initTabs() {
@@ -103,6 +123,24 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     }
 
     @Override
+    public void onChangeLanguage() {
+        dialogLanguage().show();
+    }
+
+    @Override
+    public void setLocale(String values) {
+        Locale myLocale = new Locale(values);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
+
+    @Override
     public void onBackPressed() {
         if (slideUp != null) {
             if (slideUp.isVisible()) {
@@ -115,6 +153,14 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
         }
     }
 
+    private void setUpLang() {
+        mRecyclerLanguages.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerLanguages.setLayoutManager(mLayoutManager);
+        languages = getResources().getStringArray(R.array.languages);
+        mLanguageAdapter = new LanguageAdapter(this, languages);
+        mRecyclerLanguages.setAdapter(mLanguageAdapter);
+        mLanguageAdapter.setLocaleListener(this);
+    }
 
     private SlideUp dialogReq() {
         slideUp = new SlideUpBuilder(mDialogReq)
@@ -144,6 +190,31 @@ public class MainActivity extends BaseActivity implements MainView, HomeFragment
     private SlideUp dialogPrivacy() {
         mHtmlPrivacy.setHtml(R.raw.privacy, new HtmlHttpImageGetter(mHtmlPrivacy));
         slideUp = new SlideUpBuilder(mDialogPrivacy)
+                .withListeners(new SlideUp.Listener.Events() {
+                    @Override
+                    public void onSlide(float percent) {
+                        DIM.setAlpha(1 - (percent / 100));
+
+                    }
+
+                    @Override
+                    public void onVisibilityChanged(int visibility) {
+                        if (visibility== View.VISIBLE) {
+                            mNavigation.setVisibility(View.INVISIBLE);
+                        } else {
+                            mNavigation.setVisibility(View.VISIBLE);
+                        }
+                    }
+                })
+                .withStartGravity(Gravity.BOTTOM)
+                .withGesturesEnabled(true)
+                .withStartState(SlideUp.State.SHOWED)
+                .build();
+        return slideUp;
+    }
+
+    private SlideUp dialogLanguage() {
+        slideUp = new SlideUpBuilder(mDialogLang)
                 .withListeners(new SlideUp.Listener.Events() {
                     @Override
                     public void onSlide(float percent) {

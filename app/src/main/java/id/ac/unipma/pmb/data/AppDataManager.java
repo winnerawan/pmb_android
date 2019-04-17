@@ -151,6 +151,14 @@ public class AppDataManager implements DataManager {
         return mApiHelper.login(username, password);
     }
 
+    @Override
+    public Single<List<Cost>> getCosts() {
+        return mApiHelper.getCosts();
+    }
 
+    @Override
+    public Single<List<Faculty>> getProgramStudy() {
+        return mApiHelper.getProgramStudy();
+    }
 }
 

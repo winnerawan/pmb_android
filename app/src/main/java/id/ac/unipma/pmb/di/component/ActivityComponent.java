@@ -6,15 +6,18 @@ import id.ac.unipma.pmb.ui.detail.DetailActivity;
 import id.ac.unipma.pmb.ui.about.AboutFragment;
 import id.ac.unipma.pmb.ui.login.LoginActivity;
 import id.ac.unipma.pmb.ui.main.MainActivity;
+import id.ac.unipma.pmb.ui.main.accreditation.AccreditationActivity;
 import id.ac.unipma.pmb.ui.main.chart.ChartActivity;
 import id.ac.unipma.pmb.ui.main.home.HomeFragment;
 import id.ac.unipma.pmb.ui.main.info.InfoFragment;
 import id.ac.unipma.pmb.ui.main.sign.SignFragment;
+import id.ac.unipma.pmb.ui.prody.ProdyActivity;
 import id.ac.unipma.pmb.ui.search.SearchActivity;
 import id.ac.unipma.pmb.ui.splash.SplashActivity;
 import id.ac.unipma.pmb.ui.main.detailinfo.DetailInfoActivity;
 import dagger.Component;
 import id.ac.unipma.pmb.di.PerActivity;
+import id.ac.unipma.pmb.ui.cost.CostActivity;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -50,4 +53,10 @@ public interface ActivityComponent {
     void inject(DetailInfoActivity detailInfoActivity);
 
     void inject(ChartActivity chartActivity);
+
+    void inject(CostActivity pmbTableActivity);
+
+    void inject(ProdyActivity prodyActivity);
+
+    void inject(AccreditationActivity accreditationActivity);
 }

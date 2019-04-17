@@ -39,6 +39,7 @@ public class AccountFragment extends BaseFragment implements AccountView {
     @BindView(R.id.container_step4) LinearLayout mStep4;
 
     private OnPrivacyPolicySelected mCallback;
+    private OnChangeLanguage aCallback;
 
     public static AccountFragment newInstance() {
 
@@ -71,10 +72,16 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
         try {
             mCallback = (OnPrivacyPolicySelected) activity;
+            aCallback = (OnChangeLanguage) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
         }
+    }
+
+    @OnClick(R.id.container_change_language)
+    void changelang() {
+        aCallback.onChangeLanguage();
     }
 
     @OnClick(R.id.container_rate_app)
@@ -132,5 +139,9 @@ public class AccountFragment extends BaseFragment implements AccountView {
 
     public interface OnPrivacyPolicySelected {
         void onPrivacyPolicySelected();
+    }
+
+    public interface OnChangeLanguage {
+        void onChangeLanguage();
     }
 }

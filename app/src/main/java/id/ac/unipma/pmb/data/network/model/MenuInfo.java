@@ -3,7 +3,9 @@ package id.ac.unipma.pmb.data.network.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MenuInfo {
+import java.io.Serializable;
+
+public class MenuInfo implements Serializable {
 
     @SerializedName("id")
     @Expose

@@ -9,6 +9,9 @@ import id.ac.unipma.pmb.ui.about.AboutMvpPresenter;
 import id.ac.unipma.pmb.ui.about.AboutPresenter;
 import id.ac.unipma.pmb.ui.main.MainMvpPresenter;
 import id.ac.unipma.pmb.ui.main.MainPresenter;
+import id.ac.unipma.pmb.ui.main.accreditation.AccreditationMvpPresenter;
+import id.ac.unipma.pmb.ui.main.accreditation.AccreditationPresenter;
+import id.ac.unipma.pmb.ui.main.accreditation.AccreditationView;
 import id.ac.unipma.pmb.ui.main.chart.ChartMvpPresenter;
 import id.ac.unipma.pmb.ui.main.chart.ChartPresenter;
 import id.ac.unipma.pmb.ui.main.home.HomeMvpPresenter;
@@ -17,10 +20,16 @@ import id.ac.unipma.pmb.ui.main.info.InfoMvpPresenter;
 import id.ac.unipma.pmb.ui.main.info.InfoPresenter;
 import id.ac.unipma.pmb.ui.main.sign.SignMvpPresenter;
 import id.ac.unipma.pmb.ui.main.sign.SignPresenter;
+import id.ac.unipma.pmb.ui.prody.ProdyMvpPresenter;
+import id.ac.unipma.pmb.ui.prody.ProdyPresenter;
+import id.ac.unipma.pmb.ui.prody.ProdyView;
 import id.ac.unipma.pmb.ui.search.SearchMvpPresenter;
 import id.ac.unipma.pmb.ui.search.SearchPresenter;
 import id.ac.unipma.pmb.ui.splash.SplashMvpPresenter;
 import id.ac.unipma.pmb.ui.splash.SplashPresenter;
+import id.ac.unipma.pmb.ui.cost.CostMvpPresenter;
+import id.ac.unipma.pmb.ui.cost.CostPresenter;
+import id.ac.unipma.pmb.ui.cost.CostView;
 import id.ac.unipma.pmb.utils.rx.AppSchedulerProvider;
 import id.ac.unipma.pmb.utils.rx.SchedulerProvider;
 import android.content.Context;
@@ -202,6 +211,27 @@ public class ActivityModule {
     @PerActivity
     DetailInfoMvpPresenter<DetailInfoView> provideDetailInfoPresenter(
             DetailInfoPresenter<DetailInfoView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    CostMvpPresenter<CostView> provideCostPresenter(
+            CostPresenter<CostView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    ProdyMvpPresenter<ProdyView> provideProdyPresenter(
+            ProdyPresenter<ProdyView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    AccreditationMvpPresenter<AccreditationView> provideAccreditationPresenter(
+            AccreditationPresenter<AccreditationView> presenter) {
         return presenter;
     }
 }

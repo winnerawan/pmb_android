@@ -88,5 +88,6 @@ public class InfoFragment extends BaseFragment implements InfoView, InfoAdapter.
         Intent intent = new Intent(getBaseActivity(), DetailInfoActivity.class);
         intent.putExtra("info", info);
         startActivity(intent);
+        //todo set different action
     }
 }
