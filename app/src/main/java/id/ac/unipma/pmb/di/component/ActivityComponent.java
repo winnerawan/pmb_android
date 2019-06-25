@@ -4,6 +4,10 @@ import id.ac.unipma.pmb.di.module.ActivityModule;
 import id.ac.unipma.pmb.ui.account.AccountFragment;
 import id.ac.unipma.pmb.ui.detail.DetailActivity;
 import id.ac.unipma.pmb.ui.about.AboutFragment;
+import id.ac.unipma.pmb.ui.input.biodata.InputBiodataActivity;
+import id.ac.unipma.pmb.ui.input.grade.InputGradeActivity;
+import id.ac.unipma.pmb.ui.input.program.InputProgramActivity;
+import id.ac.unipma.pmb.ui.input.track.InputTrackActivity;
 import id.ac.unipma.pmb.ui.login.LoginActivity;
 import id.ac.unipma.pmb.ui.main.MainActivity;
 import id.ac.unipma.pmb.ui.main.accreditation.AccreditationActivity;
@@ -59,4 +63,12 @@ public interface ActivityComponent {
     void inject(ProdyActivity prodyActivity);
 
     void inject(AccreditationActivity accreditationActivity);
+
+    void inject(InputBiodataActivity inputBiodataActivity);
+
+    void inject(InputGradeActivity inputGradeActivity);
+
+    void inject(InputProgramActivity inputProgramActivity);
+
+    void inject(InputTrackActivity inputTrackActivity);
 }

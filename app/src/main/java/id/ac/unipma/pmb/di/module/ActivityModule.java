@@ -7,6 +7,18 @@ import id.ac.unipma.pmb.ui.detail.DetailMvpPresenter;
 import id.ac.unipma.pmb.ui.detail.DetailPresenter;
 import id.ac.unipma.pmb.ui.about.AboutMvpPresenter;
 import id.ac.unipma.pmb.ui.about.AboutPresenter;
+import id.ac.unipma.pmb.ui.input.biodata.InputBiodataMvpPresenter;
+import id.ac.unipma.pmb.ui.input.biodata.InputBiodataPresenter;
+import id.ac.unipma.pmb.ui.input.biodata.InputBiodataView;
+import id.ac.unipma.pmb.ui.input.grade.InputGradeMvpPresenter;
+import id.ac.unipma.pmb.ui.input.grade.InputGradePresenter;
+import id.ac.unipma.pmb.ui.input.grade.InputGradeView;
+import id.ac.unipma.pmb.ui.input.program.InputProgramMvpPresenter;
+import id.ac.unipma.pmb.ui.input.program.InputProgramPresenter;
+import id.ac.unipma.pmb.ui.input.program.InputProgramView;
+import id.ac.unipma.pmb.ui.input.track.InputTrackMvpPresenter;
+import id.ac.unipma.pmb.ui.input.track.InputTrackPresenter;
+import id.ac.unipma.pmb.ui.input.track.InputTrackView;
 import id.ac.unipma.pmb.ui.main.MainMvpPresenter;
 import id.ac.unipma.pmb.ui.main.MainPresenter;
 import id.ac.unipma.pmb.ui.main.accreditation.AccreditationMvpPresenter;
@@ -232,6 +244,34 @@ public class ActivityModule {
     @PerActivity
     AccreditationMvpPresenter<AccreditationView> provideAccreditationPresenter(
             AccreditationPresenter<AccreditationView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    InputBiodataMvpPresenter<InputBiodataView> provideInputBiodataPresenter(
+            InputBiodataPresenter<InputBiodataView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    InputGradeMvpPresenter<InputGradeView> provideInputGradePresenter(
+            InputGradePresenter<InputGradeView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    InputProgramMvpPresenter<InputProgramView> provideInputProgramPresenter(
+            InputProgramPresenter<InputProgramView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    InputTrackMvpPresenter<InputTrackView> provideInputTrackPresenter(
+            InputTrackPresenter<InputTrackView> presenter) {
         return presenter;
     }
 }
